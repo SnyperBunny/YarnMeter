@@ -1,5 +1,7 @@
 //YarnMeter -- test to see how SparkleShare updates small changes.
 
+//new comment from laptop
+
 // constants won't change. They're used here to set pin numbers:
 const int hallPin = 12;     // the number of the hall effect sensor pin
 const int saveButtonPin = 11; //GREEN
