@@ -136,7 +136,8 @@ void loop() {
 }//****End of Main****
 
 void UpdateScreen(){
-    
+    Serial.println("this is the update screen unit");
+    Serial.println(Unit);
     if (Unit="m"){
       Serial.println(Unit);
       YLDisplay=YarnLength;//counter*circ/100;//yarn length in meters
@@ -145,7 +146,6 @@ void UpdateScreen(){
       Serial.println(Unit);
       YLDisplay=YarnLength*m2y;//counter*circ/100*m2y;//yarn length in meters *(y/m) conversion
     }
-    Serial.println(Unit);
     
     String FinalDisplay=YLDisplay+Unit;
     Serial.println(FinalDisplay);
