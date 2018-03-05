@@ -35,8 +35,7 @@ float y2m=0.9144;//m=y*(m/y)
 
 int circ=20; //circumference of the disk the yarn goes around. In CENTIMETERS.
 float YarnLength;//Ylength=counter*circ[umference]/100. in METERS.
-//float NewL;
-//float previousYL=0;
+float YLDisplay;
 
 
 
@@ -121,8 +120,10 @@ void loop() {
   YarnLength=counter*circ/100;//num revolutions*circumference(cm)/100
   
   //only update the screen at each 0.5 meters or yards.
-  if (counter*circ/100%0.5<0.1){//if number of revolutions is such that it equals 0.5m (if it is within 0.1 of being half a meter)
+  if (counter%4==0){//if number of revolutions is such that it equals 0.5m (if it is within 0.1 of being half a meter)
     UpdateScreen();
+    
+    
   }
   
 
