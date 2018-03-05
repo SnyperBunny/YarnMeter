@@ -109,7 +109,7 @@ void loop() {
   if (hallState == LOW) {
     if (hallState != oldhallState) {
       counter++;
-      Serial.println(counter);
+      //Serial.println(counter);
       ScreenUpdateFlag=1;
     }
     oldhallState = hallState; //set hall state of (t-1)
