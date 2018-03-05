@@ -1,3 +1,12 @@
+//#include <SPI.h>
+//#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
+#define OLED_RESET 4
+Adafruit_SSD1306 display(OLED_RESET);
+
+
 // constants won't change. They're used here to set pin numbers:
 const int hallPin = 12;     // the number of the hall effect sensor pin
 const int saveButtonPin = 11; //GREEN
@@ -47,8 +56,20 @@ void setup() {
   pinMode(UnitButtonPin, INPUT);
   pinMode(hallPin, INPUT);
 
-}
 
+//***setup for the screen***
+  // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3C (for the 128x32)
+  // init done
+  
+  // Clear the buffer.
+  display.clearDisplay();
+
+//**for reference**
+  //textsize 2 gives ~10 chars across
+  //textsize 3 gives 7 chars across **this is a good size for numbers <10k or >10k with no decimals.
+  //textsize 4 gives 5 chars across
+}
 
 
 void loop() {
@@ -141,15 +162,32 @@ void UpdateScreen(){
       YLDisplay=YarnLength*m2y;//counter*circ/100*m2y;//yarn length in meters *(y/m) conversion
     }
     
-    String FinalDisplay=YLDisplay+Unit;
-    Serial.println(FinalDisplay);
-
+    //String FinalDisplay=YLDisplay+Unit;
+    //Serial.println(FinalDisplay);
+    display.clearDisplay();
+    
+    if (YLDisplay>=10000.0){
+      display.setTextSize(2);
+    }
+    else{
+      display.setTextSize(3);
+    }
+    
+    display.println();
+    display.print(YLDisplay,1);
+    display.println(Unit);
     
 }
 
 void ResetSub() {
   counter = 0;
-  Serial.println("REEEEESSEEEEEETTT!!!!");
+  display.clearDisplay();
+  display.setTextSize(3);
+  //display.setTextColor(WHITE);
+  display.println("Reset!");
+  delay(2000);
+  display.clearDisplay();
+  display.prinln("0.0m");
 }
 
 void SaveSub() {
@@ -163,7 +201,5 @@ void UnitSub(){
   else {
     Unit="m";
   }
-  Serial.println("new unit is:");
-  Serial.println(Unit);
 }
 
