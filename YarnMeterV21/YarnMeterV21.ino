@@ -166,7 +166,7 @@ void UnitSub(){
   if (Unit=="m"){
     Unit="y";
   }
-  else (Unit=="y"){
+  else {
     Unit="m";
   }
   Serial.println("new unit is:");
