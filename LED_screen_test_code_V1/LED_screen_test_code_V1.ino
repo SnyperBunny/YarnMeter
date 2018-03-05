@@ -29,10 +29,12 @@ void setup()   {
   display.setTextColor(BLACK, WHITE); // 'inverted' text
   display.println(3.141592);
   */
-  
-  display.setTextSize(4);
+  //textsize 3 gives
+  //textsize 4 gives 5 chars across
+  display.setTextSize(3);
   display.setTextColor(WHITE);
-  display.print("0x"); display.println(0xDEADBEEF, HEX);
+  display.print("0x"); 
+  display.println(0xDEADBEEF, HEX);
   
   display.display();
   delay(2000);
