@@ -61,13 +61,6 @@ void setup()   {
   // Clear the buffer.
   display.clearDisplay();
 
-  // Show the display buffer on the hardware.
-  // NOTE: You _must_ call display after making any drawing commands
-  // to make them visible on the display hardware!
-  display.display();
-  delay(2000);
-  display.clearDisplay();
-
   // draw the first ~12 characters in the font
   testdrawchar();
   display.display();
