@@ -21,7 +21,7 @@ void setup()   {
   display.setTextColor(WHITE);
 
   display.println("Bootup finished");
-  delay(2000);
+  delay(20000);
   display.clearDisplay();
   /*
   display.setTextSize(1);
