@@ -27,7 +27,7 @@ unsigned long lastDebounceTime = 0;  // the last time the output pin was toggled
 unsigned long debounceDelay = 50;    // the debounce time; increase if the output flickers
 
 //unit conversion:
-String Unit="m";
+String Unit="m";//initialize units as meters.
 
 //m=y*(m/y)
 float m2y=1.09361;//y=m*(y/m)
@@ -138,9 +138,11 @@ void loop() {
 void UpdateScreen(){
     
     if (Unit="m"){
+      Serial.println(Unit);
       YLDisplay=YarnLength;//counter*circ/100;//yarn length in meters
     }
     else if (Unit="y"){
+      Serial.prinln(Unit);
       YLDisplay=YarnLength*m2y;//counter*circ/100*m2y;//yarn length in meters *(y/m) conversion
     }
     Serial.println(Unit);
@@ -161,14 +163,11 @@ void SaveSub() {
 }
 
 void UnitSub(){
-  Serial.println("OH yeah, switching units up in heaaaa!");
   if (Unit=="m"){
     Unit="y";
-    Serial.println("switched to yards");
   }
   else if (Unit=="y"){
     Unit="m";
-    Serial.println("switched to meters");
   }
   Serial.println("new unit is:");
   Serial.println(Unit);
