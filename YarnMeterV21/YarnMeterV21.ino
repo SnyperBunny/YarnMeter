@@ -1,5 +1,5 @@
-//#include <SPI.h>
-//#include <Wire.h>
+#include <SPI.h>
+#include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
@@ -70,7 +70,8 @@ void setup() {
   display.display();
   delay(2000);
   display.clearDisplay();
-
+  display.display();
+  
 //**for reference**
   //textsize 2 gives ~10 chars across
   //textsize 3 gives 7 chars across **this is a good size for numbers <10k or >10k with no decimals.
