@@ -61,13 +61,6 @@ void setup()   {
   // Clear the buffer.
   display.clearDisplay();
 
-  // draw the first ~12 characters in the font
-  testdrawchar();
-  display.display();
-  delay(2000);
-  display.clearDisplay();
-
-
   // text display tests
   display.setTextSize(1);
   display.setTextColor(WHITE);
@@ -88,22 +81,3 @@ void setup()   {
 void loop() {
   
 }
-
-
-
-void testdrawchar(void) {
-  display.setTextSize(1);
-  display.setTextColor(WHITE);
-  display.setCursor(0,0);
-
-  for (uint8_t i=0; i < 168; i++) {
-    if (i == '\n') continue;
-    display.write(i);
-    if ((i > 0) && (i % 21 == 0))
-      display.println();
-  }    
-  display.display();
-  delay(1);
-}
-
-
