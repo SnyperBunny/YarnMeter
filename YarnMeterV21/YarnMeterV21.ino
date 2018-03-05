@@ -164,10 +164,12 @@ void UnitSub(){
   Serial.println("OH yeah, switching units up in heaaaa!");
   if (Unit=="m"){
     Unit="y";
+    Serial.println("switched to yards");
     //NewL=YarnLength*m2y;
   }
   else if (Unit=="y"){
     Unit="m";
+    Serial.println("switched to meters");
     //NewL=YarnLength*y2m;
   }
   //YarnLength=NewL;
