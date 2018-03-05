@@ -170,5 +170,7 @@ void UnitSub(){
     Unit="m";
     Serial.println("switched to meters");
   }
+  Serial.println("new unit is:");
+  Serial.println(Unit);
 }
 
