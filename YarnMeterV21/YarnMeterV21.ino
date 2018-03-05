@@ -64,6 +64,7 @@ void setup() {
   
   // Clear the buffer.
   display.clearDisplay();
+  display.setTextColor(WHITE);
 
 //**for reference**
   //textsize 2 gives ~10 chars across
