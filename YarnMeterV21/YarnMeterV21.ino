@@ -67,6 +67,7 @@ void setup() {
   display.setTextColor(WHITE);
 
   display.println("Bootup finished");
+  display.display();
   delay(2000);
   display.clearDisplay();
 
@@ -183,6 +184,7 @@ void UpdateScreen(){
     display.println();
     display.print(YLDisplay,1);
     display.println(Unit);
+    display.display();
     
 }
 
@@ -192,9 +194,11 @@ void ResetSub() {
   display.setTextSize(3);
   //display.setTextColor(WHITE);
   display.println("Reset!");
+  display.display();
   delay(2000);
   display.clearDisplay();
   display.println("0.0m");
+  display.display();
 }
 
 void SaveSub() {
