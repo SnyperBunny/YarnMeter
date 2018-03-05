@@ -66,6 +66,10 @@ void setup() {
   display.clearDisplay();
   display.setTextColor(WHITE);
 
+  display.println("Bootup finished");
+  delay(2000);
+  display.clearDisplay();
+
 //**for reference**
   //textsize 2 gives ~10 chars across
   //textsize 3 gives 7 chars across **this is a good size for numbers <10k or >10k with no decimals.
