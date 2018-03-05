@@ -19,7 +19,6 @@ void setup()   {
   // Clear the buffer.
   display.clearDisplay();
 
-  // text display tests
   /*
   display.setTextSize(1);
   display.setTextColor(WHITE);
