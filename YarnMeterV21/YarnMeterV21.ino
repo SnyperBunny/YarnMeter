@@ -143,7 +143,7 @@ void UpdateScreen(){
     else if (Unit="y"){
       YLDisplay=YarnLength*m2y;//counter*circ/100*m2y;//yarn length in meters *(y/m) conversion
     }
-    
+    Serial.println(Units);
     
     String FinalDisplay=YLDisplay+Unit;
     Serial.println(FinalDisplay);
@@ -165,13 +165,10 @@ void UnitSub(){
   if (Unit=="m"){
     Unit="y";
     Serial.println("switched to yards");
-    //NewL=YarnLength*m2y;
   }
   else if (Unit=="y"){
     Unit="m";
     Serial.println("switched to meters");
-    //NewL=YarnLength*y2m;
   }
-  //YarnLength=NewL;
 }
 
