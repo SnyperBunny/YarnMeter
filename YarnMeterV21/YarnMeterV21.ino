@@ -118,7 +118,7 @@ void loop() {
     oldhallState = hallState; //set hall state of (t-1)
   }
 
-  YarnLength=counter*circ/100;//num revolutions*circumference(cm)/100
+  YarnLength=float(counter)*float(circ)/100.0;//num revolutions*circumference(cm)/100
   
   //only update the screen once each revolution.
   if (ScreenUpdateFlag==1){
@@ -138,10 +138,10 @@ void loop() {
 void UpdateScreen(){
     
     if (Unit="m"){
-      YLDisplay=counter*circ/100;//yarn length in meters
+      YLDisplay=YarnLength;//counter*circ/100;//yarn length in meters
     }
     else if (Unit="y"){
-      YLDisplay=counter*circ/100*m2y;//yarn length in meters *(y/m) conversion
+      YLDisplay=YarnLength*m2y;//counter*circ/100*m2y;//yarn length in meters *(y/m) conversion
     }
     
     
