@@ -34,7 +34,7 @@ void setup()   {
   */
   //textsize 3 gives 7 chars across
   //textsize 4 gives 5 chars across
-  float test=200.3;
+  float test=2530.3;
 
   if (test>=10000){
     display.setTextSize(2);
