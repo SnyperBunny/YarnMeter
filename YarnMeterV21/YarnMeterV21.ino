@@ -1,7 +1,5 @@
 //YarnMeter -- test to see how SparkleShare updates small changes.
 
-//new comment from laptop
-
 // constants won't change. They're used here to set pin numbers:
 const int hallPin = 12;     // the number of the hall effect sensor pin
 const int saveButtonPin = 11; //GREEN
@@ -37,8 +35,8 @@ float y2m=0.9144;//m=y*(m/y)
 
 int circ=20; //circumference of the disk the yarn goes around. In CENTIMETERS.
 float YarnLength;//Ylength=counter*circ[umference]/100. in METERS.
-float NewL;
-float previousYL=0;
+//float NewL;
+//float previousYL=0;
 
 
 
@@ -106,14 +104,6 @@ void loop() {
     }
   }
 
-  //only update the screen at each 0.5 meters or yards.
-  if (counter*circ/100%0.5<0.1){//if number of revolutions is such that it =s 0.5m (if it is within 0.1 of being half a meter)
-    UpdateScreen();
-    String yarnLtempVar=YarnLength+Unit;
-    Serial.println(yarnLtempVar);
-  }
-
-
   // read the state of the hall effect sensor:
   hallState = digitalRead(hallPin);
 
@@ -128,23 +118,36 @@ void loop() {
     oldhallState = hallState; //set hall state of (t-1)
   }
 
+  YarnLength=counter*circ/100;//num revolutions*circumference(cm)/100
+  
+  //only update the screen at each 0.5 meters or yards.
+  if (counter*circ/100%0.5<0.1){//if number of revolutions is such that it equals 0.5m (if it is within 0.1 of being half a meter)
+    UpdateScreen();
+  }
+  
+
 //  lastSaveState = SaveState;
   lastSaveBTNState = currentSaveBTNState;
   lastResetBTNState=currentResetBTNState;
   lastUnitBTNState=currentUnitBTNState;
-
-  if (Unit="m"){
-    //yarnlength increases by a meter amount
-  }
-  else if (Unit="y"){
-    //yarnlength increases by a yard amount
-  }
   
   
 }//****End of Main****
 
 void UpdateScreen(){
-  
+    
+    if (Unit="m"){
+      YLDisplay=counter*circ/100;//yarn length in meters
+    }
+    else if (Unit="y"){
+      YLDisplay=counter*circ/100*m2y;//yarn length in meters *(y/m) conversion
+    }
+    
+    
+    String FinalDisplay=YLDisplay+Unit;
+    Serial.println(FinalDisplay);
+
+    
 }
 
 void ResetSub() {
@@ -156,19 +159,16 @@ void SaveSub() {
   Serial.println("save sequence over heeeeerreee!! yeaahhhh~~");
 }
 
-
 void UnitSub(){
   Serial.println("OH yeah, switching units up in heaaaa!");
   if (Unit=="m"){
     Unit="y";
-    NewL=YarnLength*m2y;
+    //NewL=YarnLength*m2y;
   }
   else if (Unit=="y"){
     Unit="m";
-    NewL=YarnLength*y2m;
+    //NewL=YarnLength*y2m;
   }
-
-  YarnLength=NewL;
-  
+  //YarnLength=NewL;
 }
 
