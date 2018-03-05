@@ -58,13 +58,6 @@ void setup()   {
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3C (for the 128x32)
   // init done
   
-  // Show the display buffer on the hardware.
-  // NOTE: You _must_ call display after making any drawing commands
-  // to make them visible on the display hardware!
-  display.display();
-  delay(2000);
-  display.clearDisplay();
-
   // draw the first ~12 characters in the font
   testdrawchar();
   display.display();
