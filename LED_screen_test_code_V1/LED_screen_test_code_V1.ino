@@ -97,11 +97,6 @@ void setup()   {
   delay(2000);
   display.clearDisplay();
 
-  // miniature bitmap display
-  display.drawBitmap(30, 16,  logo16_glcd_bmp, 16, 16, 1);
-  display.display();
-  delay(1);
-
 }
 
 
