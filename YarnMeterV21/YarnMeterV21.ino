@@ -187,7 +187,7 @@ void ResetSub() {
   display.println("Reset!");
   delay(2000);
   display.clearDisplay();
-  display.prinln("0.0m");
+  display.println("0.0m");
 }
 
 void SaveSub() {
