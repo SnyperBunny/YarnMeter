@@ -143,7 +143,7 @@ void UpdateScreen(){
     else if (Unit="y"){
       YLDisplay=YarnLength*m2y;//counter*circ/100*m2y;//yarn length in meters *(y/m) conversion
     }
-    Serial.println(Units);
+    Serial.println(Unit);
     
     String FinalDisplay=YLDisplay+Unit;
     Serial.println(FinalDisplay);
