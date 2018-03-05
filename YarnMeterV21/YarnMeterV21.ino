@@ -182,7 +182,7 @@ void UpdateScreen(){
       display.setTextSize(3);
     }
     
-    display.println();
+    //display.println();
     display.print(YLDisplay,1);
     display.println(Unit);
     display.display();
