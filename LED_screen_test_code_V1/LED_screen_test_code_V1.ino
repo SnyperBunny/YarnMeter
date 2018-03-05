@@ -31,9 +31,17 @@ void setup()   {
   */
   //textsize 3 gives 7 chars across
   //textsize 4 gives 5 chars across
+  float test=1255.7;
+
+  if (test>=1000){
+    display.setTextSize(2);
+  }
+  else{
   display.setTextSize(3);
+  }
+  
   display.setTextColor(WHITE);
-  display.print("553.70m"); 
+  display.print("553.70m");display.println("m"); 
   //display.println(0xDEADBEEF, HEX);
   
   display.display();
