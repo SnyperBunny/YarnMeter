@@ -37,7 +37,7 @@ int circ=20; //circumference of the disk the yarn goes around. In CENTIMETERS.
 float YarnLength;//Ylength=counter*circ[umference]/100. in METERS.
 float YLDisplay;
 
-
+boolean ScreenUpdateFlag=1;//start with an inital update.
 
 void setup() {
   Serial.begin(9600);//initialize the Baud-rate for the Serial Monitor.
@@ -110,6 +110,7 @@ void loop() {
     if (hallState != oldhallState) {
       counter++;
       Serial.println(counter);
+      ScreenUpdateFlag=1;
     }
     oldhallState = hallState; //set hall state of (t-1)
   }
@@ -119,9 +120,10 @@ void loop() {
 
   YarnLength=counter*circ/100;//num revolutions*circumference(cm)/100
   
-  //only update the screen at every 4 revolutions.
-  if (counter%4==0){
+  //only update the screen once each revolution.
+  if (ScreenUpdateFlag==1){
     UpdateScreen();
+    ScreenUpdateFlag=0;
   }
   
 
