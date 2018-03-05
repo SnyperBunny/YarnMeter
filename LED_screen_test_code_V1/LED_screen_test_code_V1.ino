@@ -41,7 +41,7 @@ void setup()   {
   }
   
   display.setTextColor(WHITE);
-  display.print("553.70m");display.println("m"); 
+  display.print(test);display.println("m"); 
   //display.println(0xDEADBEEF, HEX);
   
   display.display();
