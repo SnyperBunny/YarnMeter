@@ -25,11 +25,12 @@ void setup()   {
   display.setTextColor(WHITE);
   display.setCursor(0,0);
   display.println("Hello, world!");
-  */
+  
   display.setTextColor(BLACK, WHITE); // 'inverted' text
   display.println(3.141592);
+  */
   
-  display.setTextSize(3);
+  display.setTextSize(4);
   display.setTextColor(WHITE);
   display.print("0x"); display.println(0xDEADBEEF, HEX);
   
