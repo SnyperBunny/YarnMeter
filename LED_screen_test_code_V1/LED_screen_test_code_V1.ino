@@ -24,7 +24,15 @@ void setup()   {
   display.display();
   delay(2000);
   display.clearDisplay();
+  //display.display();
+
+  display.print("Look! I WORK!!! yaaaaayyy....");
   display.display();
+  delay(2000);
+  display.clearDisplay();
+  display.display();
+  
+  
   /*
   display.setTextSize(1);
   display.setTextColor(WHITE);
