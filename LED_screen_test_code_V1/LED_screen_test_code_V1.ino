@@ -108,8 +108,10 @@ void setup()   {
 
 
 void loop() {
+  display.clearDisplay();
   display.print("x= ");
   display.println(x);
+  display.display();
   delay(1000);
   
   x++;
