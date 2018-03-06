@@ -76,7 +76,7 @@ void setup()   {
   display.clearDisplay();
   //display.display();
 
-  display.print("Look! I WORK!!! yaaaaayyy....");
+  display.println("Look! I WORK!!! yaaaaayyy....");
   display.display();
   delay(2000);
   display.clearDisplay();
@@ -113,6 +113,7 @@ void loop() {
   display.println(x);
   display.display();
   delay(1000);
-  
+
+  display.setCursor(0,0);
   x++;
 }
