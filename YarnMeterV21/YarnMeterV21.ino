@@ -68,7 +68,7 @@ void setup() {
 
   display.println("Bootup finished");
   display.display();
-  delay(2000);
+  delay(5000);
   display.clearDisplay();
   display.display();
   
@@ -189,11 +189,10 @@ void UpdateScreen(){
     
 }
 
-void ResetSub() {
+void ResetSub(void) {
   counter = 0;
   display.clearDisplay();
   display.setTextSize(3);
-  //display.setTextColor(WHITE);
   display.println("Reset!");
   display.display();
   delay(2000);
