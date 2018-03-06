@@ -110,12 +110,6 @@ void loop() {
       SaveBTNState = currentSaveBTNState;
       if (SaveBTNState == HIGH) {
         Serial.println("Save!");
-        //display.setTextSize(2);
-        //display.setTextColor(WHITE);
-        display.setCursor(0,0);
-        display.println("Save btn pressed");
-        display.display();
-        delay (2000);
         SaveSub();
       }
     }
@@ -123,10 +117,6 @@ void loop() {
       ResetBTNState = currentResetBTNState;
       if (ResetBTNState == HIGH) {
         Serial.println("Reset!");
-        display.setCursor(0,0);
-        display.println("Reset btn pressed");
-        display.display();
-        delay (2000);
         ResetSub();
       }
     }
@@ -134,10 +124,6 @@ void loop() {
       UnitBTNState = currentUnitBTNState;
       if (UnitBTNState == HIGH) {
         Serial.println("Switch Units!!");
-        display.setCursor(0,0);
-        display.println("Units btn pressed");
-        display.display();
-        delay (2000);
         UnitSub();
       }
     }
@@ -196,7 +182,7 @@ void UpdateScreen(){
       display.setTextSize(3);
     }
     
-    //display.println();
+    display.setCursor(0,0);
     display.print(YLDisplay,1);
     display.println(Unit);
     display.display();
@@ -207,16 +193,24 @@ void ResetSub(void) {
   counter = 0;
   display.clearDisplay();
   display.setTextSize(3);
+  display.setCursor(0,0);
   display.println("Reset!");
   display.display();
   delay(2000);
+  
   display.clearDisplay();
+  display.setCursor(0,0);
   display.println("0.0m");
   display.display();
 }
 
 void SaveSub() {
   Serial.println("save sequence over heeeeerreee!! yeaahhhh~~");
+  
+  display.clearDisplay();
+  display.setCursor(0,0);
+  display.println("Saving...");
+  delay(2000);
 }
 
 void UnitSub(){
@@ -226,5 +220,10 @@ void UnitSub(){
   else {
     Unit="m";
   }
+  display.clearDisplay();
+  display.setCursor(0,0);
+  display.print("Switched to ");
+  display.println(Unit);
+  delay(2000);
 }
 
