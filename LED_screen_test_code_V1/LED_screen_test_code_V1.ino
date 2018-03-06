@@ -9,6 +9,46 @@ Adafruit_SSD1306 display(OLED_RESET);
 //#define LOGO16_GLCD_HEIGHT 16 
 //#define LOGO16_GLCD_WIDTH  16 
 
+
+// constants won't change. They're used here to set pin numbers:
+const int hallPin = 12;     // the number of the hall effect sensor pin
+const int saveButtonPin = 11; //GREEN
+const int ResetButtonPin = 10; //YELLOW
+const int UnitButtonPin = 9; //BLACK
+
+// variables will change:
+int hallState = 0;          // variable for reading the hall sensor status
+int oldhallState = 0;       //to store previous hall-state reading.
+int counter = 0;
+
+//save button
+int SaveBTNState;             // the current reading from the input pin
+int lastSaveBTNState = LOW;   // the previous reading from the input pin
+
+//reset button
+int ResetBTNState;
+int lastResetBTNState = LOW;
+
+//unit button
+int UnitBTNState;
+int lastUnitBTNState = LOW;
+
+unsigned long lastDebounceTime = 0;  // the last time the output pin was toggled
+unsigned long debounceDelay = 50;    // the debounce time; increase if the output flickers
+
+//unit conversion:
+String Unit="m";//initialize units as meters.
+
+//m=y*(m/y)
+float m2y=1.09361;//y=m*(y/m)
+float y2m=0.9144;//m=y*(m/y)
+
+int circ=20; //circumference of the disk the yarn goes around. In CENTIMETERS.
+float YarnLength;//Ylength=counter*circ[umference]/100. in METERS.
+float YLDisplay;
+
+boolean ScreenUpdateFlag=1;//start with an inital update.
+
 void setup()   {                
   Serial.begin(9600);
 
