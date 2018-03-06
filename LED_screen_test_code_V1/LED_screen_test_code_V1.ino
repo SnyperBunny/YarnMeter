@@ -49,6 +49,8 @@ float YLDisplay;
 
 boolean ScreenUpdateFlag=1;//start with an inital update.
 
+int x=0;
+
 void setup()   {                
   Serial.begin(9600);//initialize the Baud-rate for the Serial Monitor.
 
@@ -106,5 +108,9 @@ void setup()   {
 
 
 void loop() {
+  display.print("x= ");
+  display.println(x);
+  delay(1000);
   
+  x++;
 }
