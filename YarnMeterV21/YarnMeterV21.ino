@@ -110,8 +110,9 @@ void loop() {
       SaveBTNState = currentSaveBTNState;
       if (SaveBTNState == HIGH) {
         Serial.println("Save!");
-        display.setTextSize(2);
-        display.setTextColor(WHITE);
+        //display.setTextSize(2);
+        //display.setTextColor(WHITE);
+        display.setCursor(0,0);
         display.println("Save btn pressed");
         display.display();
         delay (2000);
@@ -122,6 +123,7 @@ void loop() {
       ResetBTNState = currentResetBTNState;
       if (ResetBTNState == HIGH) {
         Serial.println("Reset!");
+        display.setCursor(0,0);
         display.println("Reset btn pressed");
         display.display();
         delay (2000);
@@ -132,6 +134,7 @@ void loop() {
       UnitBTNState = currentUnitBTNState;
       if (UnitBTNState == HIGH) {
         Serial.println("Switch Units!!");
+        display.setCursor(0,0);
         display.println("Units btn pressed");
         display.display();
         delay (2000);
