@@ -210,7 +210,10 @@ void SaveSub() {
   display.clearDisplay();
   display.setCursor(0,0);
   display.println("Saving...");
+  display.display();
   delay(2000);
+  display.clearDisplay();
+  
 }
 
 void UnitSub(){
@@ -224,6 +227,8 @@ void UnitSub(){
   display.setCursor(0,0);
   display.print("Switched to ");
   display.println(Unit);
+  display.display();
   delay(2000);
+  display.clearDisplay();
 }
 
