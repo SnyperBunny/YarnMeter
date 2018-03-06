@@ -110,6 +110,8 @@ void loop() {
       SaveBTNState = currentSaveBTNState;
       if (SaveBTNState == HIGH) {
         Serial.println("Save!");
+        display.setTextSize(2);
+        display.setTextColor(WHITE);
         display.println("Save btn pressed");
         display.display();
         delay (2000);
