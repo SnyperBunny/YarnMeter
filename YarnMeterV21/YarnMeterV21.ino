@@ -225,7 +225,7 @@ void UnitSub(){
   }
   display.clearDisplay();
   display.setCursor(0,0);
-  display.print("Switched to ");
+  display.print("Now ");
   display.println(Unit);
   display.display();
   delay(2000);
