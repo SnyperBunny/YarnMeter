@@ -200,7 +200,8 @@ void ResetSub(void) {
   
   display.clearDisplay();
   display.setCursor(0,0);
-  display.println("0.0m");
+  display.print("0.0");
+  display.println(Unit);
   display.display();
 }
 
