@@ -68,7 +68,7 @@ void setup() {
 
   display.println("Bootup finished");
   display.display();
-  delay(5000);
+  delay(2000);
   display.clearDisplay();
   display.display();
   
