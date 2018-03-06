@@ -50,8 +50,16 @@ float YLDisplay;
 boolean ScreenUpdateFlag=1;//start with an inital update.
 
 void setup()   {                
-  Serial.begin(9600);
+  Serial.begin(9600);//initialize the Baud-rate for the Serial Monitor.
 
+  //set input pins as inputs
+  //pinMode(SaveButtonPin, INPUT);
+  pinMode(saveButtonPin, INPUT);
+  pinMode(ResetButtonPin, INPUT);
+  pinMode(UnitButtonPin, INPUT);
+  pinMode(hallPin, INPUT);
+
+//***setup for the screen***
   // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3C (for the 128x32)
   // init done
@@ -72,17 +80,9 @@ void setup()   {
   display.clearDisplay();
   display.display();
   
-  
-  /*
-  display.setTextSize(1);
-  display.setTextColor(WHITE);
-  display.setCursor(0,0);
-  display.println("Hello, world!");
-  
-  display.setTextColor(BLACK, WHITE); // 'inverted' text
-  display.println(3.141592);
-  */
-  //textsize 3 gives 7 chars across
+  //**for reference**
+  //textsize 2 gives ~10 chars across
+  //textsize 3 gives 7 chars across **this is a good size for numbers <10k or >10k with no decimals.
   //textsize 4 gives 5 chars across
   /*
   float test=2530.3;
