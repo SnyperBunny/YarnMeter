@@ -20,7 +20,7 @@ void setup()   {
   display.clearDisplay();
   display.setTextColor(WHITE);
 
-  display.print("Bootup finished");
+  display.println("Bootup finished");
   display.display();
   delay(2000);
   display.clearDisplay();
