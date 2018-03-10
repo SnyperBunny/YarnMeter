@@ -214,11 +214,13 @@ void SaveSub() {
   delay(2000);
   display.clearDisplay();
   display.display();
-  
+  /*
   display.setCursor(0,0);
   display.print(YLDisplay,1);
   display.println(Unit);
   display.display();
+  */
+  UpdateScreen()'
   
 }
 
@@ -238,9 +240,6 @@ void UnitSub(){
   display.clearDisplay();
   display.display();
   
-  display.setCursor(0,0);
-  display.print(YLDisplay,1);
-  display.println(Unit);
-  display.display();
+  UpdateScreen();
 }
 
