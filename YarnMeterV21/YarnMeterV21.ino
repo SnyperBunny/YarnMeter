@@ -109,21 +109,21 @@ void loop() {
     if (currentSaveBTNState != SaveBTNState) {
       SaveBTNState = currentSaveBTNState;
       if (SaveBTNState == HIGH) {
-        Serial.println("Save!");
+        //Serial.println("Save!");
         SaveSub();
       }
     }
     if (currentResetBTNState != ResetBTNState) {
       ResetBTNState = currentResetBTNState;
       if (ResetBTNState == HIGH) {
-        Serial.println("Reset!");
+        //Serial.println("Reset!");
         ResetSub();
       }
     }
     if (currentUnitBTNState != UnitBTNState) {
       UnitBTNState = currentUnitBTNState;
       if (UnitBTNState == HIGH) {
-        Serial.println("Switch Units!!");
+        //Serial.println("Switch Units!!");
         UnitSub();
       }
     }
@@ -170,9 +170,8 @@ void UpdateScreen(){
     }
     
     String FinalDisplay=YLDisplay+Unit;
-    Serial.println(FinalDisplay);
-
-    
+    //Serial.println(FinalDisplay);
+   
     display.clearDisplay();
     
     if (YLDisplay>=10000.0){
@@ -206,7 +205,7 @@ void ResetSub(void) {
 }
 
 void SaveSub() {
-  Serial.println("save sequence over heeeeerreee!! yeaahhhh~~");
+  //Serial.println("save sequence over heeeeerreee!! yeaahhhh~~");
   
   display.clearDisplay();
   display.setCursor(0,0);
@@ -214,6 +213,12 @@ void SaveSub() {
   display.display();
   delay(2000);
   display.clearDisplay();
+  display.display();
+  
+  display.setCursor(0,0);
+  display.print(YLDisplay,1);
+  display.println(Unit);
+  display.display();
   
 }
 
