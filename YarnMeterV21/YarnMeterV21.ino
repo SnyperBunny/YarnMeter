@@ -195,7 +195,7 @@ void ResetSub(void) {
   display.setCursor(0,0);
   display.println("Reset!");
   display.display();
-  delay(2000);
+  delay(1500);
   
   display.clearDisplay();
   display.setCursor(0,0);
@@ -234,7 +234,13 @@ void UnitSub(){
   display.print("Now ");
   display.println(Unit);
   display.display();
-  delay(2000);
+  delay(1500);
   display.clearDisplay();
+  display.display();
+  
+  display.setCursor(0,0);
+  display.print(YLDisplay,1);
+  display.println(Unit);
+  display.display();
 }
 
